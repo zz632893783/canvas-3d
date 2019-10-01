@@ -13,20 +13,20 @@ export default {
             visual: {
                 x: 0,
                 y: -100,
-                z: 1000
+                z: 600
             },
             lineList: [
-                new Line(20, 2, 0, 0, -150, -200, 200, 10),
-                new Line(20, 2, 0, 0, -120, -200, 200, 10),
-                new Line(20, 2, 0, 0, -90, -200, 200, 10),
-                new Line(20, 2, 0, 0, -60, -200, 200, 10),
-                new Line(20, 2, 0, 0, -30, -200, 200, 10),
-                new Line(20, 2, 0, 0, 0, -200, 200, 10),
-                new Line(20, 2, 0, 0, 30, -200, 200, 10),
-                new Line(20, 2, 0, 0, 60, -200, 200, 10),
-                new Line(20, 2, 0, 0, 90, -200, 200, 10),
-                new Line(20, 2, 0, 0, 120, -200, 200, 10),
-                new Line(20, 2, 0, 0, 150, -200, 200, 10)
+                new Line(10, 2, 0, 0, -150, -200, 200, 20),
+                new Line(10, 2, 0, 0, -120, -200, 200, 20),
+                new Line(10, 2, 0, 0, -90, -200, 200, 20),
+                new Line(10, 2, 0, 0, -60, -200, 200, 20),
+                new Line(10, 2, 0, 0, -30, -200, 200, 20),
+                new Line(10, 2, 0, 0, 0, -200, 200, 20),
+                new Line(10, 2, 0, 0, 30, -200, 200, 20),
+                new Line(10, 2, 0, 0, 60, -200, 200, 20),
+                new Line(10, 2, 0, 0, 90, -200, 200, 20),
+                new Line(10, 2, 0, 0, 120, -200, 200, 20),
+                new Line(10, 2, 0, 0, 150, -200, 200, 20)
             ],
             lineOffset: 0,
             rotationAngleSpeed: 1
@@ -41,7 +41,9 @@ export default {
             this.lineList.forEach(line => {
                 line.pointList.forEach(item => {
                     this.ctx.beginPath()
-                    this.ctx.arc(item.canvasX + this.canvasWidth / 2, item.canvasY + this.canvasHeight / 2, 2, 0, 2 * Math.PI)
+                    // 暂且假定小圆点的原始半径是2,则投影半径可表示为
+                    let pointSize = 2 * this.visual.z / (this.visual.z - item.z)
+                    this.ctx.arc(item.canvasX + this.canvasWidth / 2, item.canvasY + this.canvasHeight / 3, pointSize, 0, 2 * Math.PI)
                     this.ctx.closePath()
                     this.ctx.fill()
                 })

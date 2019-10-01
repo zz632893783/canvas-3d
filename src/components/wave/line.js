@@ -27,10 +27,9 @@ class Line {
         }
     }
     updatePointList (rotationAngleSpeed, visual) {
-        // console.log(this.c)
         this.pointList.forEach(item => {
             let x = item.x
-            let y = item.y
+            // let y = item.y
             let z = item.z
             item.x = x * Math.cos(rotationAngleSpeed / 180 * Math.PI) - z * Math.sin(rotationAngleSpeed / 180 * Math.PI)
             item.z = z * Math.cos(rotationAngleSpeed / 180 * Math.PI) + x * Math.sin(rotationAngleSpeed / 180 * Math.PI)
