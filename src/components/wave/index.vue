@@ -55,7 +55,7 @@ export default {
                     line.c = this.lineOffset + index * 30
                     line.updatePointList(this.rotationAngleSpeed, this.visual)
                 })
-                this.lineOffset = this.lineOffset + 1
+                this.lineOffset = this.lineOffset + 2
                 this.draw()
                 this.animationFrame()
             })
